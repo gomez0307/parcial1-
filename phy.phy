@@ -1,0 +1,32 @@
+
+def gravedad(planeta, especial):
+    if planeta == "Tierra":
+        return 5.0 if especial == 1 else 9.8
+    elif planeta == "Luna":
+        return 3.0 if especial == 1 else 1.6
+    elif planeta == "Halo":
+        return 7.0
+    else:
+        return 0.0  
+
+def distancia(planeta, caida, especial):
+    gravedad1 = gravedad(planeta, especial)
+    
+    if planeta == "Halo" and caida > 10:
+        return 300.0
+    else:
+        return 0.5 * gravedad1 * (caida ** 2)
+
+
+print("Tipo de mapa (Tierra, Luna, Halo): ")
+planeta = input()  
+print("Tiempo en segundos: ")
+caida = float(input())  
+print("¿Hay evento especial? (1 para Sí, 0 para No): ")
+especial = int(input())  
+
+
+resultado = distancia(planeta, caida, especial)
+
+
+print(f"Distancia recorrida: {resultado:.2f} metros")
